@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>To-Do</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <h1>To-Do</h1>
+      <input id="search" type="search" placeholder="Search tasks…" />
+    </header>
+
+    <section class="controls">
+      <form id="new-task-form">
+        <input id="task-input" type="text" placeholder="Add a new task…" required />
+        <select id="priority">
+          <option value="normal">Normal</option>
+          <option value="high">High</option>
+          <option value="low">Low</option>
+        </select>
+        <input id="due" type="date" />
+        <button type="submit">Add</button>
+      </form>
+
+      <div class="filters">
+        <label><input type="radio" name="filter" value="all" checked /> All</label>
+        <label><input type="radio" name="filter" value="active" /> Active</label>
+        <label><input type="radio" name="filter" value="completed" /> Completed</label>
+        <button id="clear-completed" title="Remove completed tasks">Clear Completed</button>
+      </div>
+    </section>
+
+    <ul id="list" class="list"></ul>
+
+    <footer class="footer">
+      <span id="count">0 items</span>
+    </footer>
+  </main>
+
+  <template id="item-template">
+    <li class="item">
+      <label class="check-wrap">
+        <input class="toggle" type="checkbox" />
+        <span class="check"></span>
+      </label>
+      <div class="content">
+        <input class="title" type="text" />
+        <div class="meta">
+          <span class="badge priority"></span>
+          <span class="badge due"></span>
+        </div>
+      </div>
+      <div class="actions">
+        <button class="edit" title="Edit">Edit</button>
+        <button class="save" title="Save" hidden>Save</button>
+        <button class="cancel" title="Cancel" hidden>Cancel</button>
+        <button class="delete" title="Delete">✕</button>
+      </div>
+    </li>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
